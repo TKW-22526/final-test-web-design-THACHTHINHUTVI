@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <title>Vải Vóc Nhà Nấm - Sản Phẩm</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <!-- Nhúng Font chữ thời trang từ Google thay cho link jsdelivr lỗi gây đơ trang -->
+    <link rel="preconnect" href="https://googleapis.com">
+    <link rel="preconnect" href="https://gstatic.com" crossorigin>
+    <link href="https://googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Link liên kết đến file CSS danh mục của bạn -->
+    <link rel="stylesheet" href="../css/style1.css">
+    
+    <!-- Gọi file dữ liệu mảng sản phẩm -->
+    <script src="../js/lib.js"></script>
+</head>
+<body>
+
+    <!-- THANH ĐIỀU HƯỚNG ĐỒNG BỘ 100% VÀ SIÊU NHẠY (BẤM PHÁT ĂN NGAY) -->
+    <header class="navbar">
+        <div class="logo">Vải Vóc Nhà Nấm</div> 
+        <nav class="nav-links">
+            <!-- Đã đồng bộ tên file thực tế của bạn: index.html, page8.html, danh-muc.html, lien-he.html -->
+            <a href="gioi-thieu.html">TRANG CHỦ / GIỚI THIỆU</a>
+            <a href="page8.html" class="active">SẢN PHẨM</a>
+            <a href="danh-muc.html">DANH MỤC</a>
+            <a href="lien-he.html">LIÊN HỆ</a>
+        </nav>
+        <div class="nav-icons">
+            <a href="gio-hang.html" class="icon-cart">Giỏ hàng ( <span id="cart-count-badge">0</span> )</a>
+        </div>
+    </header>
+
+    <!-- KHU VỰC HIỂN THỊ LƯỚI SẢN PHẨM -->
+    <main class="shop-container">
+        <h2 class="page-title">BỘ SƯU TẬP ƯA CHUỘNG</h2>
+        
+        <!-- Lưới chứa sản phẩm (Giữ nguyên id để hàm của bạn tự đổ dữ liệu) -->
+        <div class="product-grid" id="product-list">
+            <!-- Tự động kết xuất thẻ card bằng JavaScript -->
+        </div>
+    </main>
+
+    <script>
+       // Giữ nguyên hàm gọi danh sách sản phẩm từ file lib.js của bạn
+       loadAllProducts(products);
+    </script>
+</body>
+</html>

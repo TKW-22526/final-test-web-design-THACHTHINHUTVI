@@ -1,0 +1,240 @@
+/* ==========================================================================
+   CSS DÀNH RIÊNG CHO TRANG LIÊN HỆ - DIP STYLE
+   ========================================================================== */
+
+/* 1. THIẾT LẬP CHUNG CHO TOÀN TRANG (RESET) */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background-color: #fafafa;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* 2. THANH ĐIỀU HƯỚNG (HEADER ĐỎ ĐÔ ĐỒNG BỘ) */
+.navbar {
+    background-color: #800000; /* Màu đỏ đô chuẩn hệ thống DIP STYLE */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 8%;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.logo {
+    color: #ffffff;
+    font-size: 24px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.nav-links a {
+    color: #ffffff;
+    text-decoration: none;
+    margin: 0 15px;
+    font-weight: bold;
+    font-size: 14px;
+    transition: background 0.2s;
+}
+
+/* Ô làm nổi bật mục LIÊN HỆ đang xem */
+.nav-links a.active {
+    background-color: #a00000; 
+    padding: 8px 15px;
+    border-radius: 4px;
+}
+
+/* Nút giỏ hàng màu trắng bo tròn viên thuốc */
+.icon-cart {
+    background-color: #ffffff;
+    color: #000000;
+    padding: 8px 20px;
+    border-radius: 20px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+/* 3. BỐ CỤC CHÍNH CHIA 2 CỘT */
+.contact-container {
+    max-width: 1200px;
+    margin: 50px auto;
+    padding: 0 20px;
+    display: flex;
+    gap: 40px;
+}
+
+/* 4. CỘT TRÁI - FORM GỬI TIN NHẮN */
+.contact-form-section {
+    flex: 1.3;
+    background-color: #ffffff;
+    padding: 40px;
+    border: 1px solid #eaeaea;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.02);
+}
+
+.contact-form-section h2 {
+    font-size: 26px;
+    color: #222;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.contact-form-section .subtitle {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 30px;
+}
+
+/* Các ô nhập dữ liệu */
+.input-group {
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.input-row {
+    display: flex;
+    gap: 20px;
+}
+
+.input-row .input-group {
+    flex: 1;
+}
+
+.input-group label {
+    font-size: 13px;
+    font-weight: bold;
+    color: #444;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.input-group input, 
+.input-group textarea {
+    padding: 12px 15px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #fcfcfc;
+    transition: all 0.2s ease-in-out;
+}
+
+/* Hiệu ứng khi nhấn chuột vào ô nhập dữ liệu */
+.input-group input:focus, 
+.input-group textarea:focus {
+    outline: none;
+    border-color: #800000; /* Đổi viền sang đỏ đô */
+    background-color: #fff;
+    box-shadow: 0 0 5px rgba(128, 0, 0, 0.15);
+}
+
+/* Nút gửi tin nhắn */
+.btn-send {
+    background-color: #222;
+    color: #fff;
+    border: none;
+    padding: 14px 35px;
+    font-size: 15px;
+    font-weight: bold;
+    text-transform: uppercase;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background 0.2s ease-in-out;
+}
+
+.btn-send:hover {
+    background-color: #800000; /* Đổi sang đỏ đô khi chỉ chuột vào */
+}
+
+/* 5. CỘT PHẢI - THÔNG TIN LIÊN HỆ & BẢN ĐỒ */
+.contact-info-section {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.info-block {
+    background-color: #ffffff;
+    padding: 40px;
+    border: 1px solid #eaeaea;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.02);
+}
+
+.info-block h2 {
+    font-size: 22px;
+    color: #800000;
+    margin-bottom: 25px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #800000;
+    display: inline-block;
+}
+
+.info-item {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 20px;
+    align-items: flex-start;
+}
+
+/* Vòng tròn bọc icon cảm xúc/emoji */
+.info-icon {
+    font-size: 20px;
+    background-color: #f7ebeb;
+    padding: 10px;
+    border-radius: 50%;
+    line-height: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.info-text h3 {
+    font-size: 15px;
+    color: #333;
+    margin-bottom: 4px;
+    font-weight: bold;
+}
+
+.info-text p {
+    font-size: 14px;
+    color: #666;
+}
+
+/* Khung bọc bản đồ Google Maps */
+.map-box {
+    border: 1px solid #eaeaea;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.02);
+}
+
+/* 6. RESPONSIVE - TƯƠNG THÍCH ĐIỆN THOẠI VÀ MÁY TÍNH BẢNG */
+@media (max-width: 992px) {
+    .contact-container {
+        flex-direction: column; /* Chuyển thành 1 cột dọc trên màn hình nhỏ */
+        padding: 0 15px;
+        margin: 30px auto;
+    }
+    
+    .input-row {
+        flex-direction: column; /* Ô nhập tên và email xếp chồng lên nhau */
+        gap: 0;
+    }
+    
+    .navbar {
+        padding: 15px 4%;
+    }
+}

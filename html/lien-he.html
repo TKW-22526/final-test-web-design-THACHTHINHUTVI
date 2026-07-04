@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vải Vóc Nhà Nấm - Liên Hệ</title>
+    <link rel="stylesheet" href="../css/style7.css">
+</head>
+<body>
+
+    <!-- THANH ĐIỀU HƯỚNG (HEADER ĐỎ ĐÔ ĐỒNG BỘ) -->
+    <header class="navbar">
+        <div class="logo">Vải Vóc Nhà Nấm</div> 
+        <nav class="nav-links">
+            <a href="gioi-thieu.html">TRANG CHỦ / GIỚI THIỆU</a>
+            <a href="page8.html">SẢN PHẨM</a>
+            <a href="danh-muc.html">DANH MỤC</a>
+            <a href="lien-he.html" class="active">LIÊN HỆ</a>
+        </nav>
+        <div class="nav-icons">
+            <a href="gio-hang.html" class="icon-cart">Giỏ hàng ( <span>0</span> )</a>
+        </div>
+    </header>
+
+    <!-- KHU VỰC LIÊN HỆ CHÍNH -->
+    <main class="contact-container">
+        
+        <!-- Cột 1: Form gửi lời nhắn -->
+        <div class="contact-form-section">
+            <h2>Gửi lời nhắn cho chúng tôi</h2>
+            <p class="subtitle">Nếu bạn có thắc mắc hay đóng góp ý kiến, hãy điền vào mẫu dưới đây.</p>
+            
+            <form action="#" method="POST" onsubmit="alert('Cảm ơn bạn đã liên hệ! Chúng tôi sẽ phản hồi sớm nhất.'); return false;">
+                <div class="input-group">
+                    <label for="name">Họ và tên *</label>
+                    <input type="text" id="contact-name" placeholder="Nhập họ và tên của bạn" required>
+                </div>
+                
+                <div class="input-row">
+                    <div class="input-group">
+                        <label for="email">Email *</label>
+                        <input type="email" id="contact-email" placeholder="Ví dụ: nguyenvan@gmail.com" required>
+                    </div>
+                    <div class="input-group">
+                        <label for="phone">Số điện thoại *</label>
+                        <input type="tel" id="contact-phone" placeholder="Nhập số điện thoại" required>
+                    </div>
+                </div>
+
+                <div class="input-group">
+                    <label for="message">Lời nhắn của bạn *</label>
+                    <textarea id="contact-message" rows="5" placeholder="Bạn cần chúng tôi hỗ trợ điều gì?..." required></textarea>
+                </div>
+
+                <button type="submit" class="btn-send">Gửi tin nhắn</button>
+            </form>
+        </div>
+
+        <!-- Cột 2: Thông tin địa chỉ & Bản đồ -->
+        <div class="contact-info-section">
+            <div class="info-block">
+                <h2>Thông tin liên hệ</h2>
+                
+                <div class="info-item">
+                    <span class="info-icon">📍</span>
+                    <div class="info-text">
+                        <h3>Địa chỉ cửa hàng:</h3>
+                        <p>123 Đường Nguyễn Trãi, Phường Bến Thành, Quận 1, TP. Hồ Chí Minh</p>
+                    </div>
+                </div>
+
+                <div class="info-item">
+                    <span class="info-icon">📞</span>
+                    <div class="info-text">
+                        <h3>Hotline hỗ trợ:</h3>
+                        <p>1900 6789 - 0987.654.321</p>
+                    </div>
+                </div>
+
+                <div class="info-item">
+                    <span class="info-icon">✉️</span>
+                    <div class="info-text">
+                        <h3>Email hỗ trợ khách hàng:</h3>
+                        <p>support@dipstyle.com</p>
+                    </div>
+                </div>
+
+                <div class="info-item">
+                    <span class="info-icon">🕒</span>
+                    <div class="info-text">
+                        <h3>Giờ mở cửa:</h3>
+                        <p>08:00 AM - 10:00 PM (Tất cả các ngày trong tuần)</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Khung bản đồ Google Maps mô phỏng -->
+            <div class="map-box">
+                <iframe src="https://google.com" width="100%" height="220" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+        </div>
+
+    </main>
+
+</body>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DIP STYLE - Danh Mục Thời Trang Nữ</title>
+    <!-- Đường dẫn đến file CSS chung của bạn -->
+    <link rel="stylesheet" href="../css/style9.css">
+</head>
+<body>
+
+    <!-- THANH ĐIỀU HƯỚNG (HEADER ĐỎ ĐÔ) -->
+    <header class="navbar">
+        <div class="logo">Vải Vóc Nhà Nấm</div> 
+        <nav class="nav-links">
+            <a href="gioi-thieu.html">TRANG CHỦ / GIỚI THIỆU</a>
+            <a href="page8.html" class="active">SẢN PHẨM</a>
+            <a href="danh-muc.html">DANH MỤC</a>
+            <a href="lien-he.html">LIÊN HỆ</a>
+        </nav>
+        <div class="nav-icons">
+            <a href="gio-hang.html" class="icon-cart">Giỏ hàng ( <span id="cart-count">0</span> )</a>
+        </div>
+    </header>
+
+    <!-- KHU VỰC HIỂN THỊ DANH SÁCH SẢN PHẨM -->
+    <main class="shop-container">
+        <h2 class="page-title">Thời Trang Nữ Mới Nhất</h2>
+        
+        <!-- Lưới chứa sản phẩm, JavaScript sẽ tự động đổ dữ liệu vào đây -->
+        <div class="product-grid" id="product-list"></div>
+    </main>
+
+    <!-- Nhúng file thư viện chứa mảng products của bạn -->
+    <script src="../js/lib.js"></script>
+    
+    <script>
+        // Hàm tự động render danh sách sản phẩm ra màn hình
+        function renderProducts() {
+            const productListContainer = document.getElementById('product-list');
+            let htmlContent = '';
+
+            // Duyệt qua từng sản phẩm trong mảng products từ file lib.js
+            products.forEach(product => {
+                htmlContent += `
+                    <div class="product-card" onclick="goToDetail('${product.id}')">
+                        <div class="product-image">
+                            <img src="${product.image}" alt="${product.name}">
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-name">${product.name}</h3>
+                            <p class="product-price">${product.price} đ</p>
+                        </div>
+                    </div>
+                `;
+            });
+
+            // Đổ toàn bộ chuỗi HTML vào khối lưới
+            productListContainer.innerHTML = htmlContent;
+        }
+
+        // Hàm chuyển hướng sang trang chi tiết kèm theo ID sản phẩm trên URL
+        function goToDetail(id) {
+            window.location.href = `chi-tiet.html?id=${id}`;
+        }
+
+        // Chạy hàm render ngay khi trang web tải xong
+        window.onload = renderProducts;
+    </script>
+</body>
+</html>

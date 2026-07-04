@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <title>Trang Chủ - Danh sách bài thực hành</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Thư viện Bootstrap 5 CDN phục vụ chia lưới ô vuông -->
+    <link href="https://jsdelivr.net" rel="stylesheet">
+    <script src="https://jsdelivr.net"></script>
+    
+    <!-- NHÚNG CSS TRỰC TIẾP: Layout lưới ô vuông phối màu đỏ rượu vang và kem -->
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #fdfaf4; /* Phông nền màu kem ấm áp, sang trọng */
+            color: #2c1a1d; /* Chữ màu nâu đen ánh đỏ nhẹ để đồng bộ */
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        /* Khung tiêu đề dải chữ to đầu trang */
+        .main-header-block {
+            margin-top: 30px;
+            margin-bottom: 40px;
+        }
+
+        .sub-title-top {
+            color: #800020; /* Màu đỏ rượu vang (Burgundy) chính gốc */
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+
+        .main-title-text {
+            font-size: 38px;
+            color: #4a1521; /* Đỏ rượu sẫm đậm cho tiêu đề lớn */
+            margin: 8px 0;
+        }
+
+        .desc-title-text {
+            font-size: 16px;
+            color: #6e5d60; /* Màu xám ấm phối hợp */
+        }
+
+        /* HỆ THỐNG LƯỚI GRID TỰ ĐỘNG CHIA 4 CỘT NẰM NGANG ĐỀU NHAU */
+        .exercise-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr); /* Ép chia chính xác thành 4 cột trên một hàng */
+            gap: 24px; /* Tạo khoảng cách thưa đều giữa các ô bài tập, không bị dính liền */
+            margin-bottom: 50px;
+        }
+
+        /* Định dạng khối hộp ô vuông bài tập nền trắng kem gờ đỏ rượu */
+        .exercise-card {
+            display: flex;
+            flex-direction: column;
+            background-color: #ffffff;
+            border-radius: 10px; /* Bo góc mềm mại */
+            padding: 25px 20px;
+            height: 100%;
+            min-height: 185px;
+            box-shadow: 0 10px 30px rgba(128, 0, 32, 0.03); /* Bóng đổ đỏ rượu mờ siêu nhẹ đằng sau */
+            border: 1px solid #f3ece1; /* Viền thẻ màu kem nhạt */
+            border-top: 4px solid #b33951; /* Gờ viền màu đỏ rượu vừa trên đỉnh Card */
+            transition: all 0.3s ease;
+            text-decoration: none; /* Xóa bỏ vạch gạch chân mặc định */
+            color: inherit;
+        }
+
+        /* Hiệu ứng nhấc nhẹ và đậm gờ màu khi di chuột vào ô */
+        .exercise-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(128, 0, 32, 0.08); /* Bóng đổ đậm hơn khi hover */
+            border-top-color: #800020; /* Gờ viền đổi sang màu đỏ rượu nguyên bản đậm đà khi hover */
+            background-color: #fffdf9; /* Nền card hơi ánh kem nhẹ khi hover */
+        }
+
+        /* Số thứ tự màu đỏ rượu vang nổi bật */
+        .card-number {
+            font-size: 14px;
+            font-weight: 800;
+            color: #800020; 
+            margin-bottom: 20px;
+        }
+
+        /* Tên bài thực hành chữ đen đậm viết hoa */
+        .card-title {
+            font-size: 16px;
+            font-weight: 700;
+            color: #2c1a1d;
+            margin-bottom: 8px;
+            text-transform: uppercase;
+        }
+
+        /* Chữ chú thích mô tả xám nhạt ở đáy card */
+        .card-desc {
+            font-size: 13px;
+            color: #7d6b6e;
+            line-height: 1.5;
+        }
+
+        /* Tương thích co giãn tự động khi xem trên màn hình điện thoại nhỏ */
+        @media (max-width: 992px) {
+            .exercise-grid { grid-template-columns: repeat(2, 1fr); } /* Màn hình vừa hiện 2 cột */
+        }
+        @media (max-width: 576px) {
+            .exercise-grid { grid-template-columns: repeat(1, 1fr); } /* Điện thoại hiện 1 cột dọc */
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <!-- Khung tiêu đề đầu trang -->
+        <header class="main-header-block">
+            <span class="sub-title-top text-uppercase">THIẾT KẾ WEB CƠ BẢN</span>
+            <h1 class="main-title-text fw-bold">Danh sách bài thực hành</h1>
+            <p class="desc-title-text text-muted">Bộ trang giới thiệu cá nhân, biểu mẫu, xử lý JavaScript và danh mục sản phẩm.</p>
+        </header>
+
+        <!-- Khung lưới chứa 8 khối ô vuông gán chuẩn link liên kết -->
+        <main class="exercise-grid">
+            
+            <!-- Ô 01: Liên kết mở bài 1 -->
+            
+            <!-- Ô 08: Liên kết mở bài 8 -->
+            <a href="../final-test-web-design-THACHTHINHUTVI/html/page8.html" class="exercise-card">
+                <div class="card-number">08</div>
+                <h4 class="card-title">Danh mục sản phẩm</h4>
+                <p class="card-desc">Hiển thị danh sách sản phẩm thời trang thiết kế Vải Vóc Nhà Nấm.</p>
+            </a>
+
+        </main>
+    </div>
+
+</body>
+</html>
