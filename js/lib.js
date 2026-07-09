@@ -121,7 +121,287 @@ const products = [
         image: "../assets/images/ao-yem-len.jpg",
         description: "Chất len gân dệt kim co giãn cực tốt, ôm sát đường cong cơ thể, phong cách cá tính và quyến rũ.",
         link: "chi-tiet.html"
-    }
+    },
+   {
+    id: "sp16",
+    name: "Áo Croptop Sọc Ngang Cổ Vuông",
+    price: "150.000",
+    image: "../assets/images/croptop-soc.jpg",
+    description: "Chất thun gân co giãn, họa tiết sọc ngang trẻ trung, tôn vòng hai thon gọn.",
+    link: "chi-tiet.html"
+  },
+  {
+    id: "sp17",
+    name: "Quần Short Jean Nữ Cạp Cao",
+    price: "195.000",
+    image: "../assets/images/short-jean.jpg",
+    description: "Vải jean denim co giãn nhẹ, ống rộng vừa phải tạo cảm giác thoải mái khi vận động.",
+    link: "chi-tiet.html"
+  },
+  {
+    id: "sp18",
+    name: "Áo Khoác Bomber Gió Unisex",
+    price: "380.000",
+    image: "../assets/images/bomber-gio.jpg",
+    description: "Vải dù 2 lớp chống thấm nước nhẹ, phom rộng cá tính, thích hợp cho cả nam và nữ.",
+    link: "chi-tiet.html"
+  },
+  {
+    id: "sp19",
+    name: "Váy Hai Dây Suông Dáng Dài",
+    price: "290.000",
+    image: "../assets/images/vay-2-day.jpg",
+    description: "Chất lụa giấy mỏng mát, dáng suông che khuyết điểm tốt, dễ phối cùng áo khoác mỏng.",
+    link: "chi-tiet.html"
+  },
+  {
+    id: "sp20",
+    name: "Áo Sơ Mi Nhung Tăm Unisex",
+    price: "275.000",
+    image: "../assets/images/somi-nhung.jpg",
+    description: "Chất nhung tăm dày dặn, màu sắc vintage độc đáo, mặc làm áo khoác ngoài cực phong cách.",
+    link: "chi-tiet.html"
+  },
+  {
+    id: "sp21",
+    name: "Quần Jogger Thun Nỉ Thể Thao",
+    price: "240.000",
+    image: "../assets/images/jogger-ni.jpg",
+    description: "Vải nỉ chân cua cao cấp, bo chun gấu quần gọn gàng, phù hợp tập thể thao hoặc dạo phố.",
+    link: "chi-tiet.html"
+  },
+  {
+    id: "sp22",
+    name: "Áo Hoodie Nỉ Bông Phom Rộng",
+    price: "350.000",
+    image: "../assets/images/hoodie-ni.jpg",
+    description: "Chất nỉ ngoại lót bông dày dặn, mũ trùm 2 lớp đứng phom, giữ ấm tốt cho mùa lạnh.",
+    link: "chi-tiet.html"
+  },
+  {
+    id: "sp23",
+    name: "Chân Váy Jean Dáng Dài Xẻ Tà",
+    price: "310.000",
+    image: "../assets/images/chan-vay-jean.jpg",
+    description: "Vải jean không co giãn giúp đứng dáng, thiết kế xẻ tà trước quyến rũ và dễ di chuyển.",
+    link: "chi-tiet.html"
+  },
+  {
+    id: "sp24",
+    name: "Áo Len Cardigan Thêu Hoa",
+    price: "365.000",
+    image: "../assets/images/cardigan-len.jpg",
+    description: "Chất len dệt mềm mại, điểm xuyết họa tiết thêu hoa thủ công ngọt ngào, thắt nút gỗ vintage.",
+    link: "chi-tiet.html"
+  },
+  {
+    id: "sp25",
+    name: "Áo Corset Ren Phối Gọng",
+    price: "210.000",
+    image: "../assets/images/corset-ren.jpg",
+    description: "Thiết kế ôm khít có gọng định hình tôn dáng, phối ren lưới tinh tế, phù hợp mặc trong blazer.",
+    link: "chi-tiet.html"
+  },
+  {
+    id: "sp26",
+    name: "Áo Croptop Thun Gân Cổ U",
+    price: "135.000",
+    image: "../assets/images/croptop-co-u.jpg",
+    description: "Chất thun gân ôm sát tôn dáng, thiết kế cổ U trẻ trung, dễ phối cùng quần cạp cao.",
+    link: "chi-tiet.html"
+  },
+  {
+    id: "sp27",
+    name: "Quần Jean Nữ Cạp Cao Ống Rộng",
+    price: "320.000",
+    image: "../assets/images/jean-nu-ong-rong.jpg",
+    description: "Vải denim dày dặn đứng phom tốt, gấu quần xả lai nhẹ tạo điểm nhấn cá tính.",
+    link: "chi-tiet.html"
+  },
+  {
+    id: "sp28",
+    name: "Chân Váy Kaki Chữ A Túi Hộp",
+    price: "245.000",
+    image: "../assets/images/vay-kaki-tui-hop.jpg",
+    description: "Chất kaki dày dặn, thiết kế túi hộp hai bên hông năng động, có sẵn quần lót bảo hộ.",
+    link: "chi-tiet.html"
+  },
+  {
+    id: "sp29",
+    name: "Đầm Dự Tiệc Trễ Vai Đính Đá",
+    price: "650.000",
+    image: "../assets/images/dam-du-tiec.jpg",
+    description: "Chất vải tafta cao cấp đứng phom sang trọng, thiết kế trễ vai quyến rũ đính đá lấp lánh.",
+    link: "chi-tiet.html"
+  },
+  {
+    id: "sp30",
+    name: "Áo Sơ Mi Chiffon Phối Bèo Cổ",
+    price: "260.000",
+    image: "../assets/images/somi-chiffon-beo.jpg",
+    description: "Chất vải chiffon cát mỏng nhẹ, phối bèo dọc bo tay điệu đà, thích hợp cho nàng công sở.",
+    link: "chi-tiet.html"
+  },
+  {
+    id: "sp31",
+    name: "Quần Parachute Vải Dù Ống Rộng",
+    price: "310.000",
+    image: "../assets/images/quan-parachute-nu.jpg",
+    description: "Vải dù siêu nhẹ thời thượng, thiết kế dây rút ở gấu quần tùy chỉnh linh hoạt độ bo.",
+    link: "chi-tiet.html"
+  },
+  {
+    id: "sp32",
+    name: "Áo Khoác Da Croptop Nữ",
+    price: "550.000",
+    image: "../assets/images/khoac-da-croptop.jpg",
+    description: "Chất liệu da PU cao cấp không bong tróc, thiết kế khóa kéo kim loại xéo cực ngầu.",
+    link: "chi-tiet.html"
+  },
+  {
+    id: "sp33",
+    name: "Váy Sườn Xám Cách Tân Dáng Ngắn",
+    price: "420.000",
+    image: "../assets/images/suon-xam-cach-tan.jpg",
+    description: "Chất vải gấm hoa ẩn sang trọng, phối cổ tàu truyền thống kết hợp khóa kéo lưng tiện lợi.",
+    link: "chi-tiet.html"
+  },
+  {
+    id: "sp34",
+    name: "Áo Thun Polo Nữ Dệt Kim",
+    price: "220.000",
+    image: "../assets/images/polo-nu-det-kim.jpg",
+    description: "Chất len dệt kim mỏng nhẹ thoáng mát, bo chun nhẹ ở gấu áo tạo nét trẻ trung.",
+    link: "chi-tiet.html"
+  },
+  {
+    id: "sp35",
+    name: "Quần Giả Váy Xếp Ly Lưng Cao",
+    price: "195.000",
+    image: "../assets/images/quan-gia-vay.jpg",
+    description: "Phía trước giả chân váy xếp ly nữ tính, phía sau là quần đùi kín đáo, chất vải trượt dày dặn.",
+    link: "chi-tiet.html"
+  },
+  {
+    id: "sp36",
+    name: "Áo Len Trễ Vai Tay Dài",
+    price: "240.000",
+    image: "../assets/images/len-tre-vai.jpg",
+    description: "Chất len tăm co giãn ôm sát body, bẻ vai ngang khoe trọn xương quai xanh quyến rũ.",
+    link: "chi-tiet.html"
+  },
+  {
+    id: "sp37",
+    name: "Đầm Babydoll Tơ Óng Dáng Xòe",
+    price: "340.000",
+    image: "../assets/images/dam-babydoll-to.jpg",
+    description: "Vải tơ óng bồng bềnh có lót trong, phom xòe rộng hạ eo cao giúp giấu bụng cực tốt.",
+    link: "chi-tiet.html"
+  },
+  {
+    id: "sp38",
+    name: "Áo Khoác Blazer Linen Mỏng Mát",
+    price: "380.000",
+    image: "../assets/images/blazer-linen-nu.jpg",
+    description: "Chất linen tự nhiên nhẹ tênh, thấm hút mồ hôi hiệu quả, phù hợp phối layer ngày hè.",
+    link: "chi-tiet.html"
+  },
+  {
+    id: "sp39",
+    name: "Quần Legging Nữ Nâng Vòng Ba",
+    price: "165.000",
+    image: "../assets/images/legging-nang-co.jpg",
+    description: "Chất thun co giãn 4 chiều dày dặn, đường may định hình giúp thon gọn đùi và tôn dáng.",
+    link: "chi-tiet.html"
+  },
+  {
+    id: "sp40",
+    name: "Chân Váy Tầng Voan Lưới",
+    price: "230.000",
+    image: "../assets/images/chan-vay-voan-tang.jpg",
+    description: "Thiết kế xếp tầng bồng bềnh, cạp chun co giãn tốt phong cách tiểu thư ngọt ngào.",
+    link: "chi-tiet.html"
+  },
+  {
+    id: "sp41",
+    name: "Áo Kiểu Trễ Vai Phối Bèo Tầng",
+    price: "235.000",
+    image: "../assets/images/tre-vai-beo.jpg",
+    description: "Chất vải voan tơ mềm mại, bèo tầng trước ngực điệu đà thích hợp đi hẹn hò, tiệc nhẹ.",
+    link: "chi-tiet.html"
+  },
+  {
+    id: "sp42",
+    name: "Quần Short Kaki Túi Hộp Nữ",
+    price: "155.000",
+    image: "../assets/images/short-kaki-nu.jpg",
+    description: "Chất kaki cotton co giãn nhẹ, lưng chun phía sau thoải mái vận động dạo phố.",
+    link: "chi-tiet.html"
+  },
+  {
+    id: "sp43",
+    name: "Đầm Body Thun Gân Cổ Polo",
+    price: "280.000",
+    image: "../assets/images/dam-body-thun-gan.jpg",
+    description: "Chất thun gân dày dặn ôm sát đường cong, cổ polo lịch sự nhưng vẫn quyến rũ.",
+    link: "chi-tiet.html"
+  },
+  {
+    id: "sp44",
+    name: "Áo Thun Oversize Form Giấu Quần",
+    price: "185.000",
+    image: "../assets/images/thun-nu-oversize.jpg",
+    description: "Chất cotton 100% định lượng cao, hình in sắc nét không bong tróc khi giặt máy.",
+    link: "chi-tiet.html"
+  },
+  {
+    id: "sp45",
+    name: "Quần Tây Nữ Ống Đứng Lịch Lãm",
+    price: "295.000",
+    image: "../assets/images/quan-tay-nu-dung.jpg",
+    description: "Chất vải tuyết mưa cao cấp chống nhăn, phom đứng chuẩn chỉnh tôn chiều cao đi làm.",
+    link: "chi-tiet.html"
+  },
+  {
+    id: "sp46",
+    name: "Chân Váy Đuôi Cá Dáng Dài",
+    price: "280.000",
+    image: "../assets/images/vay-duoi-ca.jpg",
+    description: "Thiết kế ôm nhẹ hông và xòe nhẹ ở gấu tạo hiệu ứng thướt tha, tôn dáng thanh lịch.",
+    link: "chi-tiet.html"
+  },
+  {
+    id: "sp47",
+    name: "Áo Croptop Sơ Mi Cổ Đức",
+    price: "185.000",
+    image: "../assets/images/croptop-somi.jpg",
+    description: "Thiết kế cổ đức lịch sự cắt ngắn dáng croptop cá tính, phối túi ngực thời thượng.",
+    link: "chi-tiet.html"
+  },
+  {
+    id: "sp48",
+    name: "Quần Biker Short Thun Tăm",
+    price: "115.000",
+    image: "../assets/images/biker-short.jpg",
+    description: "Thiết kế ôm sát đùi năng động, chất thun tăm co giãn tốt cho các hoạt động thể thao.",
+    link: "chi-tiet.html"
+  },
+  {
+    id: "sp49",
+    name: "Đầm Dạ Hội Cổ Yếm Xẻ Tà",
+    price: "580.000",
+    image: "../assets/images/dam-da-hoi.jpg",
+    description: "Vải lụa cao cấp rủ nhẹ tạo độ mượt, thiết kế cổ yếm sang trọng kết hợp xẻ đùi sâu.",
+    link: "chi-tiet.html"
+  },
+  {
+    id: "sp50",
+    name: "Áo Khoác Cardigan Chống Nắng",
+    price: "180.000",
+    image: "../assets/images/cardigan-nang.jpg",
+    description: "Chất thun lạnh thông hơi đạt chuẩn UPF 50+, thiết kế tay xỏ ngón tiện lợi khi đi xe.",
+    link: "chi-tiet.html"
+  }
 ];
 
 // =========================================================
