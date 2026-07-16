@@ -29,7 +29,7 @@
             <a href="lien-he.html">LIÊN HỆ</a>
         </nav>
         <div class="nav-icons">
-            <a href="gio-hang.html" class="icon-cart">Giỏ hàng ( <span id="cart-count-badge">0</span> )</a>
+           <a href="gio-hang.html" class="icon-cart">Giỏ hàng ( <span id="cart-count">0</span> )</a> 
         </div>
     </header>
 
@@ -44,8 +44,30 @@
     </main>
 
     <script>
-       // Giữ nguyên hàm gọi danh sách sản phẩm từ file lib.js của bạn
-       loadAllProducts(products);
-    </script>
+    // 1. Giữ nguyên hàm gọi danh sách sản phẩm từ file lib.js của bạn
+    loadAllProducts(products);
+
+    // 2. ĐOẠN CODE ĐỒNG BỘ SỐ LƯỢNG GIỎ HÀNG TRÊN NAVBAR TỰ ĐỘNG (ĐÃ SỬA LỖI)
+    function updateNavbarCartCount() {
+        const cartCountElement = document.getElementById("cart-count");
+        if (!cartCountElement) return; 
+
+        // Đọc giỏ hàng hiện tại đã lưu trữ trong máy tính
+        const cart = JSON.parse(localStorage.getItem('shoppingCart')) || [];
+        
+        // Tính tổng số lượng (cộng dồn thuộc tính quantity của từng món)
+        let totalItems = 0;
+        cart.forEach(item => {
+            totalItems += item.quantity;
+        });
+
+        // Ép con số hiển thị trên thanh menu thay đổi lập tức theo thời gian thực
+        cartCountElement.innerText = totalItems;
+    }
+
+    // >>> THAY ĐỔI QUYẾT ĐỊNH Ở ĐÂY: Cho hàm chạy trực tiếp luôn, không chờ sự kiện nữa <<<
+    updateNavbarCartCount();
+
+</script>
 </body>
 </html>

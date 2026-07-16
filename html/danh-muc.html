@@ -14,8 +14,8 @@
         <div class="logo">Vải Vóc Nhà Nấm</div> 
         <nav class="nav-links">
             <a href="gioi-thieu.html">TRANG CHỦ / GIỚI THIỆU</a>
-            <a href="page8.html" class="active">SẢN PHẨM</a>
-            <a href="danh-muc.html">DANH MỤC</a>
+            <a href="page8.html">SẢN PHẨM</a>
+            <a href="danh-muc.html" class="active">DANH MỤC</a>
             <a href="lien-he.html">LIÊN HỆ</a>
         </nav>
         <div class="nav-icons">
@@ -35,27 +35,56 @@
     <script src="../js/lib.js"></script>
     
     <script>
-        // Hàm tự động render danh sách sản phẩm ra màn hình
-        function renderProducts() {
+        // Hàm tự động gom nhóm sản phẩm dựa theo trường category bạn vừa thêm
+        function renderCategorizedProducts() {
             const productListContainer = document.getElementById('product-list');
-            let htmlContent = '';
+            if (!productListContainer) return;
 
-            // Duyệt qua từng sản phẩm trong mảng products từ file lib.js
+            // 1. Tạo một đối tượng trống để chứa các nhóm sản phẩm
+            const categories = {};
             products.forEach(product => {
-                htmlContent += `
-                    <div class="product-card" onclick="goToDetail('${product.id}')">
-                        <div class="product-image">
-                            <img src="${product.image}" alt="${product.name}">
-                        </div>
-                        <div class="product-info">
-                            <h3 class="product-name">${product.name}</h3>
-                            <p class="product-price">${product.price} đ</p>
-                        </div>
-                    </div>
-                `;
+                // Nếu sản phẩm nào quên chưa điền category, mặc định xếp vào nhóm Khác
+                const catName = product.category || "Sản phẩm khác";
+                
+                if (!categories[catName]) {
+                    categories[catName] = [];
+                }
+                categories[catName].push(product);
             });
 
-            // Đổ toàn bộ chuỗi HTML vào khối lưới
+            // 2. Duyệt qua từng nhóm đã gom để dựng cấu trúc HTML
+            let htmlContent = '';
+            
+            for (const categoryName in categories) {
+                // Tự động sinh thanh tiêu đề phân khu đỏ đô sang trọng
+                htmlContent += `
+                    <div class="category-section" style="grid-column: 1 / -1; width: 100%; margin-top: 40px; margin-bottom: 15px;">
+                        <h3 class="category-subtitle" style="font-size: 18px; font-weight: 700; color: #800000; text-transform: uppercase; border-left: 4px solid #800000; padding-left: 12px; letter-spacing: 1px;">
+                            ✨ BỘ SƯU TẬP: ${categoryName}
+                        </h3>
+                    </div>
+                `;
+
+                // Đổ toàn bộ các thẻ card sản phẩm thuộc phân khu đó vào
+                categories[categoryName].forEach(product => {
+                    // Tự động nhận diện linh hoạt thuộc tính ảnh nếu bạn đặt tên là img hoặc image
+                    const productImg = product.image || product.img;
+                    
+                    htmlContent += `
+                        <div class="product-card" onclick="goToDetail('${product.id}')">
+                            <div class="product-image">
+                                <img src="${productImg}" alt="${product.name}">
+                            </div>
+                            <div class="product-info">
+                                <h3 class="product-name">${product.name}</h3>
+                                <p class="product-price">${product.price.toLocaleString('vi-VN')} đ</p>
+                            </div>
+                        </div>
+                    `;
+                });
+            }
+
+            // 3. Đổ toàn bộ chuỗi HTML hoàn chỉnh vào khối lưới grid ban đầu
             productListContainer.innerHTML = htmlContent;
         }
 
@@ -64,8 +93,30 @@
             window.location.href = `chi-tiet.html?id=${id}`;
         }
 
-        // Chạy hàm render ngay khi trang web tải xong
-        window.onload = renderProducts;
+        // Kích hoạt hàm xử lý phân loại tự động ngay khi trang web tải xong
+        window.onload = renderCategorizedProducts;
+        // ĐOẠN CODE ĐỒNG BỘ SỐ LƯỢNG GIỎ HÀNG TRÊN NAVBAR TỰ ĐỘNG
+function updateNavbarCartCount() {
+    const cartCountElement = document.getElementById("cart-count");
+    if (!cartCountElement) return; // Nếu trang không có nút giỏ hàng thì bỏ qua
+
+    // Đọc giỏ hàng hiện tại đã lưu trữ trong máy tính
+    const cart = JSON.parse(localStorage.getItem('shoppingCart')) || [];
+    
+    // Tính tổng số lượng (cộng dồn thuộc tính quantity của từng món)
+    let totalItems = 0;
+    cart.forEach(item => {
+        totalItems += item.quantity;
+    });
+
+    // Ép con số hiển thị trên thanh menu thay đổi lập tức theo thời gian thực
+    cartCountElement.innerText = totalItems;
+}
+
+// Chạy hàm cập nhật ngay khi trang web vừa tải xong
+document.addEventListener("DOMContentLoaded", updateNavbarCartCount);
+
+
     </script>
-</body>
+    </body>
 </html>

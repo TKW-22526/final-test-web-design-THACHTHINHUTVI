@@ -77,6 +77,7 @@
     </main>
 
     <!-- NHÚNG FILE DỮ LIỆU ĐỂ GIỎ HÀNG TỰ TRA CỨU SẢN PHẨM -->
+        <!-- Nhúng file thư viện chứa mảng products của bạn -->
     <script src="../js/lib.js"></script>
     
     <script>
@@ -88,37 +89,48 @@
                 return amount.toLocaleString('vi-VN') + " đ";
             }
 
+            // 1. ĐỌC THAM SỐ ID TỪ CÁC TRANG KHÁC TRUYỀN SANG VÍA URL
             const urlParams = new URLSearchParams(window.location.search);
             const productId = urlParams.get('id');
 
+            // LẤY GIỎ HÀNG CŨ ĐÃ LƯU TRONG MÁY (Nếu chưa có thì khởi tạo mảng rỗng [])
             let cart = JSON.parse(localStorage.getItem('shoppingCart')) || [];
 
+            // Nếu phát hiện có mã sản phẩm được truyền sang từ 3 trang khác
             if (productId && typeof products !== 'undefined') {
-                const foundProduct = products.find(obj => obj.id === productId);
+                const foundProduct = products.find(obj => obj.id == productId || obj.id === parseInt(productId));
                 if (foundProduct) {
-                    const existingItem = cart.find(item => item.id === productId);
+                    // KIỂM TRA XEM SẢN PHẨM NÀY ĐÃ CÓ TRONG GIỎ HÀNG CŨ CHƯA
+                    const existingItem = cart.find(item => item.id == productId);
+                    
                     if (existingItem) {
+                        // Nếu đã có, CỘNG DỒN SỐ LƯỢNG lên 1 chứ KHÔNG LÀM MẤT sản phẩm khác
                         existingItem.quantity += 1;
                     } else {
+                        // Nếu chưa có, ĐẨY THÊM SẢN PHẨM MỚI VÀO MẢNG CŨ
                         cart.push({
                             id: foundProduct.id,
                             name: foundProduct.name,
                             price: foundProduct.price,
-                            image: foundProduct.image,
+                            image: foundProduct.image || foundProduct.img,
                             quantity: 1
                         });
                     }
+                    // LƯU LẠI MẢNG ĐÃ CỘNG DỒN VÀO BỘ NHỚ LOCALSTORAGE
                     localStorage.setItem('shoppingCart', JSON.stringify(cart));
+                    
+                    // Làm sạch tham số trên URL để khi khách F5 làm mới trang không bị tự tăng số lượng
                     window.history.replaceState({}, document.title, window.location.pathname);
                 }
             }
 
+            // 2. HÀM KẾT XUẤT DANH SÁCH GIỎ HÀNG RA MÀN HÌNH UI
             function renderCart() {
                 if (cart.length === 0) {
                     wrapper.innerHTML = `
                         <div style="text-align: center; width: 100%; padding: 50px 0;">
                             <p style="font-size: 16px; color: #666; margin-bottom: 20px;">Giỏ hàng của bạn đang trống.</p>
-                            <a href="page8.html" style="background: #800000; color: #fff; text-decoration: none; padding: 12px 25px; border-radius: 4px; font-weight: bold; display: inline-block;">Quay lại danh sách</a>
+                            <a href="page8.html" style="background: #800000; color: #fff; text-decoration: none; padding: 12px 25px; border-radius: 4px; font-weight: bold; display: inline-block;">Quay lại mua sắm</a>
                         </div>
                     `;
                     document.getElementById("cart-count").innerText = 0;
@@ -130,6 +142,7 @@
                 let totalItemsCount = 0;
 
                 cart.forEach((item, index) => {
+                    // Tự lọc bỏ dấu chấm thô phân cách nghìn nếu chuỗi giá từ file lib.js chứa dấu chấm
                     const rawPrice = parseInt(item.price.toString().replace(/\./g, ''));
                     const itemTotal = rawPrice * item.quantity;
                     
@@ -167,6 +180,7 @@
                 document.getElementById("cart-count").innerText = totalItemsCount;
             }
 
+            // Hàm tăng giảm số lượng sản phẩm trực tiếp sống động
             window.changeQty = function(index, change) {
                 cart[index].quantity += change;
                 if (cart[index].quantity < 1) cart[index].quantity = 1;
@@ -174,6 +188,7 @@
                 renderCart();
             };
 
+            // Hàm xóa hẳn sản phẩm khỏi danh sách giỏ
             window.removeItem = function(index) {
                 if (confirm("Bạn muốn xóa sản phẩm này khỏi giỏ hàng chứ?")) {
                     cart.splice(index, 1);
@@ -182,8 +197,30 @@
                 }
             };
 
+            // Thực thi kết xuất ngay khi mở trang giỏ hàng
             renderCart();
         });
+        // ĐOẠN CODE ĐỒNG BỘ SỐ LƯỢNG GIỎ HÀNG TRÊN NAVBAR TỰ ĐỘNG
+function updateNavbarCartCount() {
+    const cartCountElement = document.getElementById("cart-count");
+    if (!cartCountElement) return; // Nếu trang không có nút giỏ hàng thì bỏ qua
+
+    // Đọc giỏ hàng hiện tại đã lưu trữ trong máy tính
+    const cart = JSON.parse(localStorage.getItem('shoppingCart')) || [];
+    
+    // Tính tổng số lượng (cộng dồn thuộc tính quantity của từng món)
+    let totalItems = 0;
+    cart.forEach(item => {
+        totalItems += item.quantity;
+    });
+
+    // Ép con số hiển thị trên thanh menu thay đổi lập tức theo thời gian thực
+    cartCountElement.innerText = totalItems;
+}
+
+// Chạy hàm cập nhật ngay khi trang web vừa tải xong
+document.addEventListener("DOMContentLoaded", updateNavbarCartCount);
+
     </script>
 </body>
 </html>

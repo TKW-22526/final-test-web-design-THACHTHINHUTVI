@@ -16,31 +16,54 @@
      <a href="page8.html">quay trở lại</a>
      <script src="../js/lib.js"></script>
 
-    <script>
+        <script>
         // 1. Lấy ID từ URL
         const urlParams = new URLSearchParams(window.location.search);
         const productId = urlParams.get('id');
 
-        // 2. Tìm sản phẩm trong mảng dựa vào ID vừa lấy
-        const foundProduct = products.find(obj => obj.id === productId);
+        // 2. Tìm sản phẩm trong mảng (Dùng dấu == để chấp nhận cả chuỗi chữ hoặc số thô, tránh lỗi so sánh)
+        const foundProduct = products.find(obj => obj.id == productId);
                 
         // 3. Hiển thị dữ liệu ra giao diện
         if (foundProduct) {
             document.getElementById('name').innerText = foundProduct.name;
             document.getElementById('price').innerText = foundProduct.price + "/túi";
             document.getElementById('description').innerText = foundProduct.description;
-            document.getElementById('image').src = foundProduct.image;
+            
+            // Tự động tương thích linh hoạt nếu file data đặt tên thuộc tính là image hoặc img
+            document.getElementById('image').src = foundProduct.image || foundProduct.img;
             document.getElementById('image').alt = foundProduct.name;
 
-            // >>> ĐOẠN CODE GẮN VÀO ĐÂY ĐỂ KÍCH HOẠT NÚT BẤM THÊM GIỎ HÀNG <<<
+            // >>> ĐÃ SỬA LỖI 1: BỔ SUNG LẠI SỰ KIỆN CLICK CHUYỂN TRANG SANG GIỎ HÀNG <<<
             document.querySelector('#description').addEventListener('click', function() {
-                window.location.href = `gio-hang.html?id=${productId}`;
+                window.location.href = `gio-hang.html?id=${foundProduct.id}`;
             });
         } 
         else {
             // Trường hợp URL bậy bạ hoặc không tìm thấy ID phù hợp
-            document.getElementById("container").innerHTML = `<h2>Sản phẩm không tồn tại hoặc đã bị xóa!</h2><a href="../index.html">Quay lại trang chủ</a>`;
+            document.getElementById("container").innerHTML = `<h2>Sản phẩm không tồn tại hoặc đã bị xóa!</h2><a href="page8.html">Quay lại trang chủ</a>`;
         }
+
+        // >>> ĐÃ SỬA LỖI 2: ĐỒNG BỘ SỐ LƯỢNG GIỎ HÀNG TRÊN NAVBAR TỰ ĐỘNG VÀ CHO CHẠY TRỰC TIẾP <<<
+        function updateNavbarCartCount() {
+            const cartCountElement = document.getElementById("cart-count");
+            if (!cartCountElement) return;
+
+            // Đọc giỏ hàng hiện tại đã lưu trữ trong máy tính
+            const cart = JSON.parse(localStorage.getItem('shoppingCart')) || [];
+            
+            // Tính tổng số lượng (cộng dồn thuộc tính quantity của từng món)
+            let totalItems = 0;
+            cart.forEach(item => {
+                totalItems += item.quantity;
+            });
+
+            // Ép con số hiển thị trên thanh menu thay đổi lập tức theo thời gian thực
+            cartCountElement.innerText = totalItems;
+        }
+
+        // Cho hàm chạy trực tiếp ngay lập tức, không dùng lệnh DOMContentLoaded bị đơ nữa
+        updateNavbarCartCount();
     </script>
 </body>
 </html>

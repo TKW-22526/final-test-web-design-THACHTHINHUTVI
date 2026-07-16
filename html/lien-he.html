@@ -18,7 +18,7 @@
             <a href="lien-he.html" class="active">LIÊN HỆ</a>
         </nav>
         <div class="nav-icons">
-            <a href="gio-hang.html" class="icon-cart">Giỏ hàng ( <span>0</span> )</a>
+            <a href="gio-hang.html" class="icon-cart">Giỏ hàng ( <span id="cart-count">0</span> )</a>
         </div>
     </header>
 
@@ -101,6 +101,27 @@
         </div>
 
     </main>
+<script>
+        function updateNavbarCartCount() {
+            const cartCountElement = document.getElementById("cart-count");
+            if (!cartCountElement) return; 
 
+            // Đọc giỏ hàng hiện tại đã tích lũy trong bộ nhớ máy
+            const cart = JSON.parse(localStorage.getItem('shoppingCart')) || [];
+            
+            // Chạy vòng lặp tính tổng số lượng quần áo
+            let totalItems = 0;
+            cart.forEach(item => {
+                totalItems += item.quantity;
+            });
+
+            // Ép con số trong dấu ngoặc trên thanh menu đổi màu lập tức
+            cartCountElement.innerText = totalItems;
+        }
+
+        // KÍCH HOẠT CHẠY TRỰC TIẾP NGAY LẬP TỨC KHI KHÁCH VỪA VÀO TRANG
+        updateNavbarCartCount();
+    </script>
 </body>
 </html>
+
